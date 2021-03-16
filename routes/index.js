@@ -11,4 +11,10 @@ router.get('/', function(req, res, next) {
   console.log('name city--'+req.session.city);
 });
 
+router.get('/path',function(req, res, next){
+  console.log('name--'+req.session);
+  console.log('name 1--'+req.session.name);
+  console.log('name city--'+req.session.city);
+});
+
 module.exports = router;
