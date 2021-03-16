@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   res.render('index', { title: 'App2' });
-  console.log('name--'+req.session.name);
+  console.log('name--'+req.session);
 });
 
 module.exports = router;
