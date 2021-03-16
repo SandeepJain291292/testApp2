@@ -14,7 +14,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'secret', resave: true, saveUninitialized: true })); //Session setup
+app.use(session({ secret: 'secret', resave: true, saveUninitialized: true, httpOnly:false })); //Session setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
