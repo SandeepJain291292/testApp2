@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   req.session.city = 'appcity';
+  res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true });
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
@@ -17,6 +18,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/path',function(req, res, next){
+  res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true });
   console.log('name-2-'+req.session);
   console.log('id-2-'+req.sessionID);
   console.log('name 1-2-'+req.session.name);
