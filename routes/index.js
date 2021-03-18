@@ -6,7 +6,7 @@ var cookies = require('browser-cookies');
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   req.session.city = 'appcity';
-  console.log('req.cookies[connect.sid]-----------'+req.cookies['connect.sid']);
+  console.log('req.cookies[connect.sid]-----------'+req.session.i);
   // cookies.defaults.secure = true;
   // cookies.defaults.SameSite = 'None';
   // res.setHeader('set-cookie', [
@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
   console.log('id--'+req.sessionID);
   console.log('name 1--'+req.session.name);
   console.log('name city--'+req.session.city);
-  res.sendStatus(200);
+  //res.sendStatus(200);
   // console.log('name-ls-'+localStorage.getItem('name'));
   // console.log('name city-ls-'+localStorage.getItem('city'));
 });
