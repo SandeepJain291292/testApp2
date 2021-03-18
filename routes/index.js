@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var cookies = require('browser-cookies');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,6 +10,7 @@ router.get('/', function(req, res, next) {
     `connect.sid=${req.sessionID}; SameSite=None: Secure`,
     'cookie2=value2; SameSite=None; Secure',
   ]);
+  cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
