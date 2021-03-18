@@ -6,8 +6,9 @@ var cookies = require('browser-cookies');
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   req.session.city = 'appcity';
-  cookies.defaults.secure = true;
-  cookies.defaults.SameSite = 'None';
+  console.log('req.cookies[connect.sid]-----------'+req.cookies['connect.sid']);
+  // cookies.defaults.secure = true;
+  // cookies.defaults.SameSite = 'None';
   // res.setHeader('set-cookie', [
   //   `connect.sid=${req.sessionID}; SameSite=None: Secure`,
   //   'cookie2=value2; SameSite=None; Secure',
