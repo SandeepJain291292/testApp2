@@ -6,6 +6,7 @@ var cookies = require('browser-cookies');
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   req.session.city = 'appcity';
+  req.session.i = 1;
   console.log('req.cookies[connect.sid]-----------'+req.session.i);
   // cookies.defaults.secure = true;
   // cookies.defaults.SameSite = 'None';
