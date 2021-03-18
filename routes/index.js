@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
     `connect.sid=${req.sessionID}; SameSite=None: Secure`,
     'cookie2=value2; SameSite=None; Secure',
   ]);
-  cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
+  console.log('connect.sid--'+cookies.get('connect.sid'));
+  // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
