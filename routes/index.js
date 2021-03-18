@@ -11,12 +11,11 @@ router.get('/', function(req, res, next) {
   console.log('req.cookies[connect.sid]-----------'+req.cookies['connect.sid']);
   // cookies.defaults.secure = true;
   // cookies.defaults.SameSite = 'None';
-  // res.setHeader('set-cookie', [
-  //   `connect.sid=${req.sessionID}; SameSite=None: Secure`,
-  //   'cookie2=value2; SameSite=None; Secure',
-  // ]);
+  res.setHeader('set-cookie', [
+    `connect.sid=${req.sessionID}; SameSite=None: Secure`
+  ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
-  cookies.set('connect.sid', req.sessionID, {secure: true});
+  // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
