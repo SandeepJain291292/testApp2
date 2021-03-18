@@ -14,12 +14,34 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'secret', resave: true, saveUninitialized: true, httpOnly:false })); //Session setup
+app.use(session({ 
+  secret: 'secret', 
+  resave: true, 
+  saveUninitialized: true, 
+  httpOnly:false, 
+  cookie: {
+    maxAge: 3600000000000,
+    httpOnly: false,
+    secure: true,
+    SameSite: 'None'
+  }
+})); //Session setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use((req, res, next) => {
+//   let cookie = req.cookies['cookieName'];
+//   if (cookie === undefined) {
+//     cookie = req.cookies['cookieName-legacy']
+//   }
+
+//   // proceed to work with cookie
+//   // ...
+
+//   return next();
+// });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
