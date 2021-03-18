@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
   console.log('id--'+req.sessionID);
   console.log('name 1--'+req.session.name);
   console.log('name city--'+req.session.city);
+  res.sendStatus(200);
   // console.log('name-ls-'+localStorage.getItem('name'));
   // console.log('name city-ls-'+localStorage.getItem('city'));
 });
