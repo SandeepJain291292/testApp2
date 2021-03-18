@@ -26,10 +26,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/path',function(req, res, next){
-  res.setHeader('set-cookie', [
-    'cookie1=value1; SameSite=Lax',
-    'cookie2=value2; SameSite=None; Secure',
-  ]);
+  // res.setHeader('set-cookie', [
+  //   'cookie1=value1; SameSite=Lax',
+  //   'cookie2=value2; SameSite=None; Secure',
+  // ]);
   console.log('name-2-'+req.session);
   console.log('id-2-'+req.sessionID);
   console.log('name 1-2-'+req.session.name);
