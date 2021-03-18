@@ -23,7 +23,7 @@ app.use(session({
     maxAge: 3600000000000,
     httpOnly: false,
     secure: true,
-    SameSite: None
+    SameSite: 'None'
   }
 })); //Session setup
 app.use(logger('dev'));
