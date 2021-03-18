@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   req.session.city = 'appcity';
   req.session.i = 1;
   console.log('req.cookies[connect.sid]-----------'+req.session.i);
+  console.log('req.cookies[connect.sid]-----------'+req.cookies[connect.sid]);
   // cookies.defaults.secure = true;
   // cookies.defaults.SameSite = 'None';
   // res.setHeader('set-cookie', [
