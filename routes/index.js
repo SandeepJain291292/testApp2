@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   //   'cookie2=value2; SameSite=None; Secure',
   // ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
-  // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
+  cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
