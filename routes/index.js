@@ -6,11 +6,13 @@ var cookies = require('browser-cookies');
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
   req.session.city = 'appcity';
-  res.setHeader('set-cookie', [
-    `connect.sid=${req.sessionID}; SameSite=None: Secure`,
-    'cookie2=value2; SameSite=None; Secure',
-  ]);
-  console.log('connect.sid--'+cookies.get('connect.sid'));
+  cookies.defaults.secure = true;
+  cookies.defaults.SameSite = None;
+  // res.setHeader('set-cookie', [
+  //   `connect.sid=${req.sessionID}; SameSite=None: Secure`,
+  //   'cookie2=value2; SameSite=None; Secure',
+  // ]);
+  //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
