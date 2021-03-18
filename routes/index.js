@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var cookies = require('browser-cookies');
 
+var LocalStorage = require('node-localstorage').LocalStorage;
+   localStorage = new LocalStorage('./scratch');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   req.session.name = 'app2';
@@ -16,8 +19,8 @@ router.get('/', function(req, res, next) {
   ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
-  window.localStorage.setItem('name', 'app2');
-  window.localStorage.setItem('city', 'app2city');
+  localStorage.setItem('name', 'app2');
+  localStorage.setItem('city', 'app2city');
   res.render('index', { title: 'App2' });
   console.log('name--'+req.session);
   console.log('id--'+req.sessionID);
@@ -37,8 +40,8 @@ router.get('/path',function(req, res, next){
   console.log('id-2-'+req.sessionID);
   console.log('name 1-2-'+req.session.name);
   console.log('name city-2-'+req.session.city);
-  console.log('name-ls2-'+window.localStorage.getItem('name'));
-  console.log('name city-ls2-'+window.localStorage.getItem('city'));
+  console.log('name-ls2-'+localStorage.getItem('name'));
+  console.log('name city-ls2-'+localStorage.getItem('city'));
 });
 
 module.exports = router;
