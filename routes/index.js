@@ -14,18 +14,19 @@ router.get('/', function(req, res, next) {
   console.log('req.cookies[connect.sid]-----------'+req.cookies['connect.sid']);
   // cookies.defaults.secure = true;
   // cookies.defaults.SameSite = 'None';
-  // res.setHeader('set-cookie', [
-  //   `connect.sid=${req.sessionID}; SameSite=None: Secure`
-  // ]);
+  res.setHeader('set-cookie', [
+    `connect.sid=${req.sessionID}; SameSite=None: Secure`
+  ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
   // localStorage.setItem('city', 'app2city');
-  res.render('index', { title: 'App2' });
   console.log('name--'+req.session);
   console.log('id--'+req.sessionID);
   console.log('name 1--'+req.session.name);
   console.log('name city--'+req.session.city);
+  res.render('index', { title: 'App2' });
+  
   //res.sendStatus(200);
   // console.log('name-ls-'+localStorage.getItem('name'));
   // console.log('name city-ls-'+localStorage.getItem('city'));
