@@ -19,14 +19,12 @@ app.use(session({
   resave: true, 
   saveUninitialized: true, 
   httpOnly:false,
-  secure:true,
-  SameSite:'None'
-  // cookie: {
-  //   maxAge: 3600000000000,
-  //   httpOnly: false,
-  //   secure: true,
-  //   SameSite: 'None'
-  // }
+  cookie: {
+    maxAge: 3600000000000,
+    httpOnly: false,
+    secure: true,
+    SameSite: 'None'
+  }
 })); //Session setup
 // app.use(session({
 //   secret: 'GHFHSGAVNBA6735e673HJGDSHDJHasdasd',
