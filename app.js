@@ -15,23 +15,23 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2']
-}));
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['key1', 'key2']
+// }));
 
-// app.use(session({ 
-//   secret: 'secret', 
-//   resave: true, 
-//   saveUninitialized: true, 
-//   httpOnly:false
-//   // cookie: {
-//   //   maxAge: 3600000000000,
-//   //   httpOnly: false,
-//   //   secure: true,
-//   //   SameSite: 'None'
-//   // }
-// })); //Session setup
+app.use(session({ 
+  secret: 'secret', 
+  resave: true, 
+  saveUninitialized: true, 
+  httpOnly:false
+  // cookie: {
+  //   maxAge: 3600000000000,
+  //   httpOnly: false,
+  //   secure: true,
+  //   SameSite: 'None'
+  // }
+})); //Session setup
 // app.use(session({
 //   secret: 'GHFHSGAVNBA6735e673HJGDSHDJHasdasd',
 //   resave: false,
