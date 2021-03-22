@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
   // localStorage.setItem('city', 'app2city');
   console.log('name--'+req.session);
   console.log('id--'+req.sessionID);
-  console.log('cookie --'+req.session.views);
+  console.log('cookie --'+req.session.getItem('key1'));
   console.log('name 1--'+req.session.name);
   console.log('name city--'+req.session.city);
   res.render('index', { title: 'App2' });
