@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+var cookieSession = require('cookie-session')
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -13,6 +14,11 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 
 app.use(session({ 
   secret: 'secret', 
