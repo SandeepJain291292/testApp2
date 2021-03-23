@@ -20,18 +20,35 @@ app.set('view engine', 'ejs');
 //   keys: ['key1', 'key2']
 // }));
 
-app.use(session({ 
-  secret: 'secret', 
-  resave: true, 
-  saveUninitialized: false, 
-  httpOnly:false
-  // cookie: {
-  //   maxAge: 3600000000000,
-  //   httpOnly: false,
-  //   secure: true,
-  //   SameSite: 'None'
-  // }
-})); //Session setup
+// app.use(session({ 
+//   secret: 'secret', 
+//   resave: true, 
+//   saveUninitialized: false, 
+//   httpOnly:false
+//   // cookie: {
+//   //   maxAge: 3600000000000,
+//   //   httpOnly: false,
+//   //   secure: true,
+//   //   SameSite: 'None'
+//   // }
+// })); //Session setup
+// set a cookie
+app.use(function (req, res, next) {
+  // check if client sent cookie
+  var cookie = req.cookies.cookieName;
+  console.log('req.cookies--'+req.cookies);
+  if (cookie === undefined) {
+    // no: set a new cookie
+    var randomNumber=Math.random().toString();
+    randomNumber=randomNumber.substring(2,randomNumber.length);
+    res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
+    console.log('cookie created successfully');
+  } else {
+    // yes, cookie was already present 
+    console.log('cookie exists', cookie);
+  } 
+  next(); // <-- important!
+});
 // app.use(session({
 //   secret: 'GHFHSGAVNBA6735e673HJGDSHDJHasdasd',
 //   resave: false,
