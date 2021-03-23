@@ -20,18 +20,18 @@ app.set('view engine', 'ejs');
 //   keys: ['key1', 'key2']
 // }));
 
-// app.use(session({ 
-//   secret: 'secret', 
-//   resave: true, 
-//   saveUninitialized: false, 
-//   httpOnly:false
-//   // cookie: {
-//   //   maxAge: 3600000000000,
-//   //   httpOnly: false,
-//   //   secure: true,
-//   //   SameSite: 'None'
-//   // }
-// })); //Session setup
+app.use(session({ 
+  secret: 'secret', 
+  resave: true, 
+  saveUninitialized: false, 
+  httpOnly:false
+  // cookie: {
+  //   maxAge: 3600000000000,
+  //   httpOnly: false,
+  //   secure: true,
+  //   SameSite: 'None'
+  // }
+})); //Session setup
 // set a cookie
 app.use(function (req, res, next) {
   // check if client sent cookie
