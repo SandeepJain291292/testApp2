@@ -17,6 +17,9 @@ router.get('/', function(req, res, next) {
   // res.setHeader('set-cookie', [
   //   `connect.sid=${req.sessionID}; SameSite=None: Secure`
   // ]);
+  res.setHeader('set-cookie', [
+    `key=value; domain=https://app-two-testsessionchange.herokuapp.com/path; SameSite=None: Secure`
+  ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');

@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(session({ 
   secret: 'secret', 
   resave: true, 
-  saveUninitialized: true, 
+  saveUninitialized: false, 
   httpOnly:false
   // cookie: {
   //   maxAge: 3600000000000,
