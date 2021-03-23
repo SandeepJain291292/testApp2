@@ -7,8 +7,8 @@ var LocalStorage = require('node-localstorage').LocalStorage;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  req.session.name = 'app2';
-  req.session.city = 'appcity';
+  req.cookieName.name = 'app2';
+  req.cookieName.city = 'appcity';
   // req.session.i = 1;
   // console.log('req.cookies[connect.sid]-----------'+req.session.i);
   // console.log('req.cookies[connect.sid]-----------'+req.cookies['connect.sid']);
@@ -17,9 +17,9 @@ router.get('/', function(req, res, next) {
   // res.setHeader('set-cookie', [
   //   `connect.sid=${req.sessionID}; SameSite=None: Secure`
   // ]);
-  // res.setHeader('set-cookie', [
-  //   'key=value; domain=https://app-two-testsessionchange.herokuapp.com/path; SameSite=Lax'
-  // ]);
+  res.setHeader('set-cookie', [
+    'key=value; domain=https://app-two-testsessionchange.herokuapp.com/path; SameSite=Lax'
+  ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
   // localStorage.setItem('name', 'app2');
