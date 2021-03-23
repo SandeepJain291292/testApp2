@@ -35,7 +35,9 @@ app.set('view engine', 'ejs');
 // set a cookie
 app.use(function (req, res, next) {
   // check if client sent cookie
-  var cookie = req.cookies.cookieName;
+  console.log('req.cookies--'+req.cookies);
+  console.log('req.cookies--'+JSON.stringify(req.cookies));
+  var cookie = req.cookies.connect.sid;
   console.log('req.cookies--'+req.cookies);
   if (cookie === undefined) {
     // no: set a new cookie
