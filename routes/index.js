@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   //   `connect.sid=${req.sessionID}; SameSite=None: Secure`
   // ]);
   res.setHeader('set-cookie', [
-    'key=value; domain=https://app-two-testsessionchange.herokuapp.com/path'
+    'key=value; domain=https://app-two-testsessionchange.herokuapp.com/path; SameSite=Lax'
   ]);
   //console.log('connect.sid--'+cookies.get('connect.sid'));
   // cookies.set('connect.sid', req.sessionID, {secure: true, SameSite='None'});
@@ -41,7 +41,7 @@ router.get('/path',function(req, res, next){
   //   'cookie2=value2; SameSite=None; Secure',
   // ]);
   res.setHeader('set-cookie', [
-    'key1=value1; domain=https://app-two-testsessionchange.herokuapp.com'
+    'key1=value1; domain=https://app-two-testsessionchange.herokuapp.com; SameSite=Lax'
   ]);
   console.log('name-2-'+req.session);
   console.log('id-2-'+req.sessionID);
