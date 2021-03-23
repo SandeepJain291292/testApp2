@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
   // check if client sent cookie
   console.log('req.cookies--'+req.cookies);
   console.log('req.cookies--'+JSON.stringify(req.cookies));
-  var cookie = req.cookies.connect.sid;
+  var cookie = req.cookies;
   console.log('req.cookies--'+req.cookies);
   if (cookie === undefined) {
     // no: set a new cookie
